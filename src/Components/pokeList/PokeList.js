@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../card/Card";
 
-import Pagination from "../pagination/Pagination";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -14,7 +13,6 @@ const Main = () => {
     const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
     const [nextUrl, setNextUrl] = useState();
     const [prevUrl, setPrevUrl] = useState();
-    const [pokeDex, setPokeDex] = useState();
 
     const pokeFun = async () => {
         setLoading(true)
@@ -36,7 +34,6 @@ const Main = () => {
         })
     }
 
-
     useEffect(() => {
         pokeFun()
     }, [url])
@@ -45,12 +42,7 @@ const Main = () => {
         <>
             <div className="container">
                 <div className="left-content">
-                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke => setPokeDex(pokeDex)} />
-                    {/* <Pagination
-                        pokePerPage={pokePerPage}
-                        totalPokemon={pokeData.length}
-                        paginate={paginate}
-                    /> */}
+                    <Card pokemon={pokeData} loading={loading} />
                     <div className="btn-group">
                         {prevUrl && <button onClick={() => {
                             setPokeData([])
@@ -60,18 +52,9 @@ const Main = () => {
                         {nextUrl && <button onClick={() => {
                             setPokeData([])
                             setUrl(nextUrl)
-
                         }}>Next</button>}
-
                     </div>
-
                 </div>
-                {/* <Link to="/pokemon/:id">
-                    <div className="right-content">
-                        <Pokeinfo data={pokeDex} />
-                    </div>
-                </Link> */}
-
             </div>
         </>
     )

@@ -11,11 +11,7 @@ const AppHeader = () => {
             </h1>
             <nav className="app__menu">
                 <ul>
-                    {/* <li><NavLink 
-                    to="/pokeMon">PokeMon</NavLink></li> */}
-                    
-                    <NavLink 
-                    to="/catch">Catch</NavLink>
+                    <Link to="/catch">Catch</Link>
                 </ul>
             </nav>
         </header>

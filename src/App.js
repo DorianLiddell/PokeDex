@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 import PokeList from './Components/pokeList/PokeList'
-import Pokeinfo from './Components/pokeInfo/Pokeinfo';
-import Singlepage from './Components/singlePage/SinglePage';
+import SinglePage from './Components/singlePage/SinglePage';
+import Card from './Components/card/Card';
 
 import AppHeader from './Components/appHeader/AppHeader';
 import Spinner from './Components/spinner/Spinner'
@@ -24,16 +24,18 @@ function App() {
                             <Route exact path="/">
                                 <PokeList />
                             </Route>
-                            <Route exact path="/pokemon/:id" >
-                                <Singlepage />
-                                
+
+                            <Route exact path="/pokemon/" >
+                                <Card />
                             </Route>
-                            {/* <Route exact path="/pokemon/:id" >
-                                <Singlepage />
-                            </Route> */}
+                            <Route exact path="/pokemon/:id" >
+                                <SinglePage />
+                            </Route>
+
                             <Route path="*">
                                 <Page404 />
                             </Route>
+
                         </Switch>
                     </Suspense>
                 </main>
