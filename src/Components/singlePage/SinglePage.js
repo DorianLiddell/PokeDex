@@ -16,9 +16,13 @@ const SinglePage = () => {
 
     const fetchPokemon = async () => {
         const response = await fetch(apiUrl + `${id}`);
-        const data = await response.json();
-        setPokemonList(data);
-    }
+        if (response.ok) {
+            const data = await response.json();
+            setPokemonList(data);
+        } else {
+            history.push("/*");
+        }
+    };
 
     useEffect(() => {
         fetchPokemon();

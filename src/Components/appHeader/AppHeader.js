@@ -1,17 +1,17 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../appHeader/appHeader.css'
 
 const AppHeader = () => {
     return (
         <header className="app__header">
             <h1 className="app__title">
-                <Link to="/">
+                <NavLink  to="/">
                     <span>PokeDex</span> 
-                </Link>
+                </NavLink >
             </h1>
             <nav className="app__menu">
                 <ul>
-                    <Link to="/catch">Catch</Link>
+                <NavLink to="/catch/:id">Catch</NavLink>
                 </ul>
             </nav>
         </header>

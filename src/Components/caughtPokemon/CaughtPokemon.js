@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
-import CaughtCard from '../caughtCard/CaughtCard';
-import CaughtPokemonList from './CaughtPokemonList';
 
-function CaughtPokemon() {
-    const [caughtPokemons, setCaughtPokemons] = useState([]);
+import React from 'react';
+import { useState } from 'react';
+import CaughtButton from '../caughtButton/CaughtButton';
+import CaughtPokemonList from '../сaughtPokemonList/CaughtPokemonList';
 
-    const addPokemonToCaughtList = (pokemon) => {
-        setCaughtPokemons([...caughtPokemons, pokemon]);
+const CaughtPokemon = () => {
+    const [caughtPokemonIds, setCaughtPokemonIds] = useState([]);
+
+    const handleAddPokemon = (id) => {
+        setCaughtPokemonIds([...caughtPokemonIds, id]);
     };
 
     return (
         <div>
-            <CaughtCard onCatch={addPokemonToCaughtList} />
-            <CaughtPokemonList caughtPokemons={caughtPokemons} />
+            <CaughtPokemonList caughtPokemonIds={handleAddPokemon} />
         </div>
     );
-}
+};
 
 export default CaughtPokemon;
+
+

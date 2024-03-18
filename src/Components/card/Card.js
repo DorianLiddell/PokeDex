@@ -1,10 +1,11 @@
 import React from "react";
 import Spinner from "../spinner/Spinner";
 import { Link } from "react-router-dom"
-import CaughtCard from "../caughtCard/CaughtCard";
+import CaughtButton from "../caughtButton/CaughtButton";
 
-const Card = ({ pokemon, loading, onCatch }) => {
-    console.log(onCatch)
+const Card = ({ pokemon, loading, handlePokemonCaught}) => {
+    
+
     return (
         <>
             {loading ? <Spinner /> :
@@ -15,10 +16,13 @@ const Card = ({ pokemon, loading, onCatch }) => {
                             <img src={item.sprites.front_default} alt="" />
                             <h2>{item.name}</h2>
                         </Link>
-                        <div className="catch-card" key={pokemon}>
-                        <CaughtCard />
+                        <div className="catch-card">
+                        <CaughtButton 
+                                id={item.id}  
+                                isCaught={item.isCaught} 
+                            />
                         </div>
-                        </div>
+                    </div>
                 ))
             }
         </>

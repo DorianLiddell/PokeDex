@@ -1,16 +1,24 @@
 import React from 'react';
+import Spinner from '../spinner/Spinner';
 
-function CaughtPokemonList({ caughtPokemons }) {
+const СaughtPokemonList = ({ caughtPokemonIds }) => {
+
     return (
-        <div>
-            
-            <ul>
-                {caughtPokemons.map((pokemon, index) => (
-                    <li key={index}>{pokemon.name} - {pokemon.type}</li>
-                ))}
-            </ul>
-        </div>
-    );
+        <>
+            {
+                (!caughtPokemonIds) ? <Spinner /> : (
+                    <div>
+                        <h2>Список пойманных покемонов:</h2>
+                        <ul>
+                            {caughtPokemonIds.map((id) => (
+                                <li key={id}>Покемон с id: {id}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            }
+        </>
+    )
 }
+export default СaughtPokemonList
 
-export default CaughtPokemonList;
